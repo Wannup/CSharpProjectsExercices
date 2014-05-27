@@ -26,22 +26,35 @@ namespace Nurl
 			string result = uo.getContent(); 
 
     		//then
-			Assert.AreEqual(uo.getContent(), "{\"coord\":{\"lon\":2.35,\"lat\":48.85},\"sys\":{\"message\":0.0063,\"country\":\"FR\",\"sunrise\":1401162895,\"sunset\":1401219641},\"weather\":[{\"id\":500,\"main\":\"Rain\",\"description\":\"light rain\",\"icon\":\"10d\"}],\"base\":\"cmc stations\",\"main\":{\"temp\":13.93,\"humidity\":85,\"pressure\":1013.1,\"temp_min\":12.78,\"temp_max\":15},\"wind\":{\"speed\":6.92,\"deg\":276.501},\"rain\":{\"3h\":1},\"clouds\":{\"all\":92},\"dt\":1401184765,\"id\":2988507,\"name\":\"Paris\",\"cod\":200}" + "\n");
+			Assert.AreEqual(uo.getContent(), "{\"coord\":{\"lon\":2.35,\"lat\":48.85},\"sys\":{\"message\":0.0366,\"country\":\"FR\",\"sunrise\":1401162895,\"sunset\":1401219641},\"weather\":[{\"id\":500,\"main\":\"Rain\",\"description\":\"light rain\",\"icon\":\"10d\"}],\"base\":\"cmc stations\",\"main\":{\"temp\":13.93,\"humidity\":85,\"pressure\":1013.1,\"temp_min\":12.78,\"temp_max\":15},\"wind\":{\"speed\":6.92,\"deg\":276.501},\"rain\":{\"3h\":1},\"clouds\":{\"all\":92},\"dt\":1401184765,\"id\":2988507,\"name\":\"Paris\",\"cod\":200}" + "\n");
 		}
 		
 		[Test]
 		public void Should_save_the_content_of_a_page()
 		{
 			//given
-			string[] arguments = {"get", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric"};
+			string[] arguments = {"get", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric", "-save", @"C:\Users\erwan\abc.json"};
     		Command c = new Command(arguments);
 
     		//when
     		UrlOperations uo = new UrlOperations(c);
 			uo.saveContent();
+			
+
+			string line;
+			string readFile = "";
+			
+			// Read the file
+			System.IO.StreamReader file = new System.IO.StreamReader(c.getSave());
+			while((line = file.ReadLine()) != null)
+			{
+			    readFile += line;
+			}
+
+			file.Close();
 
     		//then
-    		Assert.That("result", Is.EqualTo(""));
+			Assert.AreEqual(uo.getContent(), readFile + "\n");
 		}
 		
 		[Test]
@@ -52,7 +65,7 @@ namespace Nurl
 
     		//when
     		//var result = command.Show(url); 
-
+			
     		//then
     		Assert.That("result", Is.EqualTo(""));
 		}

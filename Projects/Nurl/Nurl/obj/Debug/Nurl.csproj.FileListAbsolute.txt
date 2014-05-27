@@ -12,3 +12,10 @@ D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.pd
 D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.dll
 D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.xml
 D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.pdb
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.exe
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.pdb
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.dll
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.xml
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.csprojResolveAssemblyReference.cache
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.exe
+Z:\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.pdb

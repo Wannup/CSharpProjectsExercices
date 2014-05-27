@@ -32,7 +32,7 @@ namespace Nurl
 		}
 		
 		public void saveContent(){
-
+			client.DownloadFile(c.getUrl(), c.getSave());
 		}
 		
 		public void testLoadingTimeContent(){
