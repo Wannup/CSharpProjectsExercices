@@ -1,0 +1,31 @@
+Feature:  GET
+    In order : to see the content of a web page.
+
+Scenario: show the content of a page
+    Given : I entered a fake url option `-url "http://abc"
+    And : any other option
+    When : I press enter
+    Then : the content of "http://abc" website should be displayed in the terminal.
+
+Scenario: save the content of a page
+    Given : I entered a fake url option `-url "http://abc"`
+    And : I enter the option `-save` with the value 'abc.json'
+    When : I press enter
+    Then : a file called `abc.json` should be created with the content of "http://abc" website.
+
+
+Feature:  TEST
+    In order : to estimate the time for load the web page.
+
+Scenario: 
+    Given : I entered a fake url option `-url "http://abc"`
+    And : I enter the option `-times` with the value '5' (to test 5 times)
+    When : I press enter
+    Then : the result of the 5 test is displayed in the terminal.
+
+Scenario: 
+    Given : I entered a fake url option `-url "http://abc"`
+    And : I enter the option `-times` with the value '5' (to test 5 times)
+    And : I enter the option -avg
+    When : I press enter
+    Then : the average time of the five test is displayed in the terminal.

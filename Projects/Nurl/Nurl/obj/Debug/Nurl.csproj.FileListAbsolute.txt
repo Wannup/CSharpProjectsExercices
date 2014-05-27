@@ -1,0 +1,14 @@
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.csprojResolveAssemblyReference.cache
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.exe
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.pdb
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.dll
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.xml
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.exe
+\\psf\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.pdb
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.csprojResolveAssemblyReference.cache
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.exe
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.exe
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\Nurl.pdb
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.dll
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\bin\Debug\nunit.framework.xml
+D:\Dropbox\Cours\C#\CSharpProjectsExercices\Projects\Nurl\Nurl\obj\Debug\Nurl.pdb
