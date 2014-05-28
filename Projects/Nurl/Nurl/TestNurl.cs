@@ -7,6 +7,7 @@
  * Pour changer ce modèle utiliser Outils | Options | Codage | Editer les en-têtes standards.
  */
 using System;
+using System.IO;
 using NUnit.Framework;
 
 namespace Nurl
@@ -55,6 +56,21 @@ namespace Nurl
 
     		//then
 			Assert.AreEqual(uo.getContent(), readFile + "\n");
+		}
+		
+		[Test]
+		public void Should_find_the_file_created()
+		{
+			//given
+			string[] arguments = {"get", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric", "-save", @"C:\Users\erwan\abc.json"};
+    		Command c = new Command(arguments);
+
+    		//when
+    		UrlOperations uo = new UrlOperations(c);
+			uo.saveContent();
+
+    		//then
+			Assert.AreEqual(File.Exists(c.getSave()), true);
 		}
 		
 		[Test]
