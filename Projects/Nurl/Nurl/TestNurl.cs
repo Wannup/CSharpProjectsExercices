@@ -17,8 +17,8 @@ namespace Nurl
 		[Test]
 		public void Should_show_the_content_of_a_page()
 		{
-			string[] arguments = {"get", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric"};
 			//given
+			string[] arguments = {"get", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric"};
 			Command c = new Command(arguments); 
 
     		//when
@@ -61,13 +61,15 @@ namespace Nurl
 		public void Should_show_the_loading_time_of_a_page_five_times()
 		{
 			//given
-    		//var command = null; 
+			string[] arguments = {"test", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric", "-times", "5"};
+			Command c = new Command(arguments);
 
     		//when
-    		//var result = command.Show(url); 
+    		UrlOperations uo = new UrlOperations(c);
+			string[] times = uo.testLoadingTimeContent();
 			
     		//then
-    		Assert.That("result", Is.EqualTo(""));
+			Assert.AreEqual(times.GetLength(0), c.getTime());
 		}
 		
 		[Test]

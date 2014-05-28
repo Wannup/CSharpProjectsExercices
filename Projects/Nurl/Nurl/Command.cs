@@ -16,31 +16,32 @@ namespace Nurl
 	/// </summary>
 	public class Command
 	{
+		private UrlOperations uo;
 		private CMDLineParser.Option urlOpt;
 		private CMDLineParser.Option saveOpt;
 		private CMDLineParser.Option timesOpt;
 		private CMDLineParser.Option avgOpt;
-		private bool getOpt;
-		private bool testOpt;
+		private bool getOpt = false;
+		private bool testOpt = false;
 		
 		public Command(string[] args)
 		{
+			uo = new UrlOperations(this);
+			
 			//create parser
 			CMDLineParser parser = new CMDLineParser();
 			
-			//add Options to parse
-			urlOpt = parser.AddStringParameter("-url", "adress of the website", true);
-			saveOpt = parser.AddStringParameter("-save", "save the content of the website", false);
-			timesOpt = parser.AddIntParameter("-times", "number of time to load the website", false);
-			avgOpt = parser.AddBoolSwitch("-avg", "average time to load the website");
-			
 			if(args.Length != 0){
+				urlOpt = parser.AddStringParameter("-url", "adress of the website", true);
 				if("get".Equals(args[0]) || "test".Equals(args[0])){
 					if("get".Equals(args[0])){
 						getOpt=true;
+						saveOpt = parser.AddStringParameter("-save", "save the content of the website", false);
 					}
 					if("test".Equals(args[0])){
 						testOpt=true;
+						timesOpt = parser.AddIntParameter("-times", "number of time to load the website", true);
+						avgOpt = parser.AddBoolSwitch("-avg", "average time to load the website");
 					}
 					
 					try{
@@ -60,6 +61,30 @@ namespace Nurl
 				  	Console.WriteLine();
 				  	Console.WriteLine("Error: Missing Required option: 'get' or 'set'");
 				  	return;
+				}
+			}
+		}
+		
+		public void execute(){
+			
+			if(getGet()){
+				// 1 - Affiche dans la console le contenu du fichier sité à l'url.
+				if(urlOpt.isMatched && !saveOpt.isMatched){
+					uo.getContent();
+				}
+				// 2 - Sauvegarde le contenu de l'url dans un fichier.
+				if(urlOpt.isMatched && saveOpt.isMatched){
+					uo.saveContent();
+				}
+			}
+			if(getTest() && timesOpt.Value != null){
+				// 3 - Teste le temps de chargement du ficher à l'url 5 fois et affiche les resultats.
+				if(urlOpt.isMatched && !avgOpt.isMatched){
+					uo.testLoadingTimeContent();
+				}
+				// 4 - Teste le temps de chargement du fichier à l'url 5 fois et affiche la moyenne des 5.
+				if(urlOpt.isMatched && timesOpt.isMatched && avgOpt.isMatched){
+					uo.testAverageLoadingTimeContent();
 				}
 			}
 		}
@@ -87,6 +112,5 @@ namespace Nurl
 		public bool getTest(){
 			return testOpt;
 		}
-		
 	}
 }
