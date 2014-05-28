@@ -38,22 +38,35 @@ namespace Nurl
 			client.DownloadFile(c.getUrl(), c.getSave());
 		}
 		
-		public string[] testLoadingTimeContent(){
-			string[] elapsedTime = new string[c.getTime()];
+		public double[] testLoadingTimeContent(){
+			double[] elapsedTime = new double[c.getTime()];
 			for(int i = 0; i<c.getTime(); i++){
 				sw.Reset();
 				sw.Start();
 				client.DownloadString(c.getUrl());
 				sw.Stop();			
-				TimeSpan ts = sw.Elapsed;
-				elapsedTime[i] = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",ts.Hours, ts.Minutes, ts.Seconds,ts.Milliseconds / 10);		
-				Console.WriteLine(elapsedTime[i]);
+				double ts = sw.ElapsedMilliseconds;
+				elapsedTime[i] = ts;
+				if(!c.getAvg()){
+					Console.WriteLine(elapsedTime[i] + " ms");
+				}
 			}
 			return elapsedTime;
 		}
 		
 		public void testAverageLoadingTimeContent(){
-			Console.WriteLine("avg");
+			double[] times = testLoadingTimeContent();
+			double averageTime = avg(times);
+			Console.WriteLine(averageTime + " ms");
+		}
+		
+		public double avg(double[] t){
+			double moy, somme = 0;
+			for(int i=0; i<t.Length; i++){
+				somme=somme+t[i];
+			}
+			moy=somme/c.getTime();
+			return moy;
 		}
 	}
 }

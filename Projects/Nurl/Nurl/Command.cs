@@ -102,7 +102,7 @@ namespace Nurl
 		}
 		
 		public bool getAvg(){
-			return (bool)avgOpt.Value;
+			return (bool)avgOpt.isMatched;
 		}
 		
 		public bool getGet(){

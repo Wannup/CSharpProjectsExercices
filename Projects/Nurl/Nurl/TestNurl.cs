@@ -66,7 +66,7 @@ namespace Nurl
 
     		//when
     		UrlOperations uo = new UrlOperations(c);
-			string[] times = uo.testLoadingTimeContent();
+			double[] times = uo.testLoadingTimeContent();
 			
     		//then
 			Assert.AreEqual(times.GetLength(0), c.getTime());
@@ -76,13 +76,16 @@ namespace Nurl
 		public void Should_show_the_average_loading_time_of_a_page()
 		{
 			//given
-    		//var command = null; 
+			string[] arguments = {"test", "-url", "http://api.openweathermap.org/data/2.5/weather?q=paris&units=metric", "-times", "5"};
+			Command c = new Command(arguments);
 
     		//when
-    		//var result = command.Show(url); 
+    		UrlOperations uo = new UrlOperations(c);
+			double[] testTimes = {12,14,5,23,14};
+			double times = uo.avg(testTimes); 
 
     		//then
-    		Assert.That("result", Is.EqualTo(""));
+    		Assert.AreEqual(times, 13.6);
 		}
 	}
 }
